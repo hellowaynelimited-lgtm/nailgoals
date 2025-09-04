@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nail Goals – Nail Art Studio</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --pink: #f8e1ea;
+      --lavender: #ede3f7;
+      --white: #fff;
+      --accent: #dbb5d6;
+      --shadow: 0 2px 16px rgba(220, 170, 210, 0.11);
+      --roundness: 18px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Quicksand', Arial, sans-serif;
+      background: linear-gradient(135deg, var(--pink), var(--lavender));
+      color: #5c486b;
+      min-height: 100vh;
+    }
+    header {
+      background: var(--white);
+      box-shadow: var(--shadow);
+      padding: 16px 0 10px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo {
+      height: 54px;
+      width: auto;
+      border-radius: var(--roundness);
+      object-fit: contain;
+      margin-right: 16px;
+    }
+    .salon-title {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: #a07bb7;
+      margin: 0;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 24px 16px 0 16px;
+    }
+    .hero {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .hero-tagline {
+      font-size: 1.15rem;
+      color: #a07bb7;
+      margin-bottom: 16px;
+      letter-spacing: 0.03em;
+    }
+    .insta-btn {
+      display: inline-flex;
+      align-items: center;
+      background: #fff;
+      border-radius: 50%;
+      border: none;
+      box-shadow: var(--shadow);
+      padding: 7px;
+      margin-top: 4px;
+      transition: background 0.15s;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .insta-btn:hover {
+      background: var(--lavender);
+    }
+    .insta-icon {
+      width: 22px;
+      height: 22px;
+      display: block;
+      filter: grayscale(1) opacity(0.7);
+    }
+
+    /* Placeholder gallery */
+    .gallery {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+      justify-content: center;
+    }
+    .gallery img, .gallery .img-placeholder {
+      background: var(--white);
+      width: 110px;
+      height: 110px;
+      border-radius: var(--roundness);
+      object-fit: cover;
+      box-shadow: var(--shadow);
+      display: block;
+    }
+    .gallery .img-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #d5b3c3;
+      font-size: 0.97rem;
+      font-style: italic;
+      background: var(--lavender);
+    }
+
+    /* Booking Form */
+    .booking-section {
+      background: var(--white);
+      border-radius: var(--roundness);
+      box-shadow: var(--shadow);
+      max-width: 410px;
+      margin: 0 auto 36px auto;
+      padding: 26px 24px 22px 24px;
+      text-align: center;
+    }
+    .booking-section h2 {
+      margin-top: 0;
+      color: #a07bb7;
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
+    .booking-form {
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+    }
+    .booking-form input,
+    .booking-form select {
+      padding: 10px;
+      border: 1.2px solid #eee;
+      border-radius: 12px;
+      font-size: 1rem;
+      background: var(--lavender);
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .booking-form input:focus,
+    .booking-form select:focus {
+      border-color: #e8b8d6;
+    }
+    .booking-form button {
+      background: linear-gradient(90deg, var(--pink), var(--lavender));
+      color: #a07bb7;
+      border: none;
+      padding: 10px 0;
+      border-radius: 18px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-top: 7px;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: background 0.13s, color 0.13s;
+    }
+    .booking-form button:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    /* Reviews */
+    .reviews-section {
+      margin: 40px auto 30px auto;
+      max-width: 700px;
+      padding: 10px 0;
+      text-align: center;
+    }
+    .reviews-section h2 {
+      color: #a07bb7;
+      font-size: 1.3rem;
+      margin-bottom: 18px;
+    }
+    .reviews-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      justify-content: center;
+    }
+    .review {
+      background: var(--white);
+      border-radius: var(--roundness);
+      box-shadow: var(--shadow);
+      padding: 18px 18px 13px 18px;
+      min-width: 220px;
+      max-width: 255px;
+      flex: 1 1 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .review .stars {
+      color: #f7c8e0;
+      font-size: 1.07em;
+      margin-bottom: 5px;
+    }
+    .review .review-text {
+      font-size: 1.02em;
+      margin-bottom: 8px;
+    }
+    .review .reviewer {
+      color: #a07bb7;
+      font-size: 0.97em;
+      font-style: italic;
+      align-self: flex-end;
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        padding: 12px 6vw 0 6vw;
+      }
+      .gallery {
+        gap: 7px;
+      }
+      .booking-section {
+        padding: 16px 7vw 12px 7vw;
+      }
+      .reviews-list {
+        gap: 10px;
+      }
+    }
+    @media (max-width: 500px) {
+      .salon-title {
+        font-size: 1.2rem;
+      }
+      .logo {
+        height: 36px;
+        margin-right: 8px;
+      }
+      .booking-section {
+        padding: 10px 2vw 8px 2vw;
+      }
+      .hero-tagline {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img class="logo" src="logo.png" alt="Nail Goals Logo">
+    <span class="salon-title">Nail Goals – Nail Art Studio</span>
+  </header>
+  <div class="container">
+    <section class="hero">
+      <div class="hero-tagline">Where Nails Become Art ✨</div>
+      <a class="insta-btn" href="https://instagram.com/nailgoalsbtm" target="_blank" title="Instagram">
+        <!-- Elegant small Instagram SVG icon -->
+        <svg class="insta-icon" viewBox="0 0 32 32" fill="none">
+          <rect x="5" y="5" width="22" height="22" rx="7" stroke="#a07bb7" stroke-width="1.5"/>
+          <circle cx="16" cy="16" r="6" stroke="#a07bb7" stroke-width="1.3"/>
+          <circle cx="22.3" cy="9.7" r="1.2" fill="#a07bb7"/>
+        </svg>
+      </a>
+    </section>
+
+    <!-- Gallery Placeholder -->
+    <section class="gallery" aria-label="Gallery placeholder">
+      <div class="img-placeholder">Image 1</div>
+      <img src="placeholder.jpg" alt="Nail sample 2">
+      <div class="img-placeholder">Image 3</div>
+      <img src="placeholder.jpg" alt="Nail sample 4">
+    </section>
+
+    <!-- Booking Form -->
+    <section class="booking-section">
+      <h2>Book Your Appointment</h2>
+      <form class="booking-form" id="bookingForm" autocomplete="off">
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+        <input type="tel" id="phone" name="phone" placeholder="Phone Number" pattern="[0-9]{10,}" required>
+        <select id="service" name="service" required>
+          <option value="">Select Service</option>
+          <option>Gel Extensions</option>
+          <option>Nail Art</option>
+          <option>Pedicure</option>
+          <option>Manicure</option>
+          <option>Acrylic Nails</option>
+        </select>
+        <button type="submit">Book via WhatsApp</button>
+      </form>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section">
+      <h2>Customer Reviews</h2>
+      <div class="reviews-list">
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <div class="review-text">Absolutely loved my nails! The designs are so creative and lasted for weeks. Highly recommend!</div>
+          <div class="reviewer">– Priya S.</div>
+        </div>
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <div class="review-text">Super clean studio, friendly staff, and beautiful pastel colors. My go-to spot for nail art!</div>
+          <div class="reviewer">– Anjali T.</div>
+        </div>
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <div class="review-text">Loved the attention to detail. Booking was easy and my manicure was flawless!</div>
+          <div class="reviewer">– Richa G.</div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Booking form logic -->
+  <script>
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var name = document.getElementById('name').value.trim();
+      var phone = document.getElementById('phone').value.trim();
+      var service = document.getElementById('service').value;
+
+      var message =
+        'Hello Nail Goals ✨,%0A' +
+        'I’d like to book an appointment. Here are my details:%0A%0A' +
+        'Name: ' + encodeURIComponent(name) + '%0A' +
+        'Phone: ' + encodeURIComponent(phone) + '%0A' +
+        'Service: ' + encodeURIComponent(service) + '%0A%0A' +
+        'Please confirm a suitable time.';
+
+      var whatsappUrl = 'https://wa.me/919902817053?text=' + message;
+      window.open(whatsappUrl, '_blank');
+    });
+  </script>
+</body>
+</html>

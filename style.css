@@ -1,0 +1,364 @@
+:root {
+  --pink: #fde5ee;
+  --lavender: #ede3f7;
+  --white: #fff;
+  --accent: #dbb5d6;
+  --primary-text: #a07bb7;
+  --shadow: 0 2px 16px rgba(220, 170, 210, 0.12);
+  --radius: 20px;
+  --transition: 0.22s cubic-bezier(.4,0,.2,1);
+  --gradient: linear-gradient(135deg, var(--pink) 0%, var(--lavender) 100%);
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Quicksand', 'Nunito', Arial, sans-serif;
+  background: var(--gradient);
+  color: #5c486b;
+  min-height: 100vh;
+  letter-spacing: 0.01em;
+  transition: background 0.2s;
+}
+a { color: inherit; text-decoration: none; }
+
+/* Header/Hero */
+header {
+  background: var(--white);
+  box-shadow: var(--shadow);
+  padding: 25px 0 18px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  transition: box-shadow var(--transition);
+}
+.logo {
+  height: 58px;
+  width: 58px;
+  border-radius: var(--radius);
+  object-fit: contain;
+  background: var(--lavender);
+  margin-right: 18px;
+  box-shadow: 0 2px 12px rgba(160,123,183,0.10);
+  transition: box-shadow var(--transition);
+}
+.salon-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--primary-text);
+  margin: 0 0 8px 0;
+  letter-spacing: 0.02em;
+  font-family: 'Quicksand', Arial, sans-serif;
+  text-shadow: 0 2px 12px #fbe8f2b0;
+}
+.hero-content {
+  text-align: center;
+  margin: 0 auto 34px auto;
+  padding-top: 28px;
+}
+.hero-tagline {
+  font-size: 1.23rem;
+  color: #b694c0;
+  margin-bottom: 20px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  font-family: 'Nunito', Arial, sans-serif;
+}
+.insta-btn {
+  display: inline-flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 50%;
+  border: none;
+  box-shadow: var(--shadow);
+  padding: 8px;
+  margin-top: 4px;
+  transition: background 0.15s, box-shadow 0.15s;
+  cursor: pointer;
+  text-decoration: none;
+}
+.insta-btn:hover {
+  background: var(--lavender);
+  box-shadow: 0 6px 20px rgba(160,123,183,0.15);
+}
+.insta-icon {
+  width: 22px;
+  height: 22px;
+  display: block;
+  filter: grayscale(1) opacity(0.7);
+}
+
+main {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Section Titles */
+section {
+  margin-bottom: 42px;
+}
+section h2 {
+  color: var(--primary-text);
+  font-size: 1.45rem;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  font-family: 'Quicksand', Arial, sans-serif;
+  text-shadow: 0 1px 8px #fbe8f2a0;
+}
+
+/* About */
+.about {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px 28px 18px 28px;
+  max-width: 680px;
+  margin: 0 auto 42px auto;
+  font-size: 1.09em;
+  color: #6d5a80;
+  font-family: 'Nunito', Arial, sans-serif;
+  transition: box-shadow var(--transition);
+}
+.about:hover {
+  box-shadow: 0 8px 30px rgba(160,123,183,0.10);
+}
+
+/* Services */
+.services-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.service {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  width: 220px;
+  min-height: 200px;
+  padding: 20px 18px 14px 18px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  transition: box-shadow var(--transition), transform var(--transition);
+  cursor: pointer;
+}
+.service:hover {
+  box-shadow: 0 6px 24px #e3c6e6b8;
+  transform: translateY(-4px) scale(1.025);
+}
+.service-img-placeholder {
+  background: var(--lavender);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  margin-bottom: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d5b3c3;
+  font-size: 1.07rem;
+  font-style: italic;
+  font-family: 'Nunito', Arial, sans-serif;
+  box-shadow: 0 2px 10px #e8b8d64a;
+}
+.service-title {
+  font-weight: 700;
+  color: var(--primary-text);
+  font-size: 1.1em;
+  margin-bottom: 7px;
+  font-family: 'Quicksand', Arial, sans-serif;
+}
+.service-desc {
+  font-size: 0.98em;
+  color: #7d6992;
+  font-family: 'Nunito', Arial, sans-serif;
+}
+
+/* Gallery */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+  margin-bottom: 14px;
+}
+.gallery-img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 18px;
+  object-fit: cover;
+  background: #f8e1ea;
+  box-shadow: 0 2px 16px rgba(220, 170, 210, 0.12);
+  transition: box-shadow 0.18s, transform 0.18s;
+  min-width: 0;
+  display: block;
+}
+.gallery-img:hover {
+  box-shadow: 0 8px 26px #e3c6e6b4;
+  transform: scale(1.03);
+}
+
+/* Booking Form */
+.booking-section {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  max-width: 440px;
+  margin: 0 auto 38px auto;
+  padding: 32px 32px 26px 32px;
+  text-align: center;
+  transition: box-shadow var(--transition);
+}
+.booking-section:hover {
+  box-shadow: 0 10px 32px #e3c6e6b0;
+}
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.booking-form input,
+.booking-form select {
+  padding: 12px;
+  border: 1.3px solid #eee;
+  border-radius: 14px;
+  font-size: 1.04rem;
+  background: var(--lavender);
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.22s;
+}
+.booking-form input:focus,
+.booking-form select:focus {
+  border-color: #e8b8d6;
+}
+.booking-form button {
+  background: linear-gradient(90deg, var(--pink), var(--lavender));
+  color: var(--primary-text);
+  border: none;
+  padding: 12px 0;
+  border-radius: 20px;
+  font-size: 1.12rem;
+  font-weight: 700;
+  margin-top: 8px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: background 0.18s, color 0.18s;
+  font-family: 'Quicksand', Arial, sans-serif;
+  letter-spacing: 0.01em;
+}
+.booking-form button:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Reviews */
+.reviews-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.review {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 22px 22px 16px 22px;
+  min-width: 220px;
+  max-width: 255px;
+  flex: 1 1 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+.review:hover {
+  box-shadow: 0 6px 24px #e3c6e6b8;
+  transform: translateY(-3px) scale(1.02);
+}
+.review .stars {
+  color: #f7c8e0;
+  font-size: 1.13em;
+  margin-bottom: 7px;
+  letter-spacing: 2px;
+  text-shadow: 0 1px 4px #e3c6e6b0;
+}
+.review .review-text {
+  font-size: 1.06em;
+  margin-bottom: 8px;
+  font-family: 'Nunito', Arial, sans-serif;
+}
+.review .reviewer {
+  color: var(--primary-text);
+  font-size: 0.97em;
+  font-style: italic;
+  align-self: flex-end;
+  font-family: 'Quicksand', Arial, sans-serif;
+}
+
+/* Footer */
+footer {
+  background: var(--white);
+  color: #a07bb7;
+  text-align: center;
+  padding: 22px 10px 17px 10px;
+  font-size: 1em;
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+  box-shadow: 0 -2px 14px #e3c6e6b0;
+  margin-top: 40px;
+  transition: box-shadow var(--transition);
+}
+.footer-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+  justify-content: center;
+}
+.footer-insta {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  justify-content: center;
+}
+.footer-insta .insta-icon {
+  width: 21px;
+  height: 21px;
+  margin-right: 4px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .services-list { gap: 14px; }
+  .service { width: 180px; min-height: 180px; }
+  .about { padding: 18px 10px 14px 10px; }
+}
+@media (max-width: 700px) {
+  .hero-content { padding-top: 14px; }
+  main { padding: 0 4vw; }
+  .services-list { gap: 7px; }
+  .gallery-grid { gap: 7px; }
+  .booking-section { padding: 13px 2vw 9px 2vw; }
+  .review { padding: 13px 7px 10px 7px;}
+}
+@media (max-width: 500px) {
+  .salon-title { font-size: 1.15rem; }
+  .logo { height: 36px; width: 36px; margin-right: 7px;}
+  .booking-section { padding: 7px 1vw 6px 1vw; }
+  .hero-tagline { font-size: 1em; }
+  .service { min-width: 0; width: 100%; }
+  .about { padding: 10px 3px 6px 3px;}
+  .review { min-width: 0; max-width: 100%; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; }
+}
